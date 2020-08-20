@@ -3,7 +3,6 @@ export interface EmployeeDto {
   department: Department;
   email: string;
   firstName: string;
-  id: number;
   lastName: string;
   middleName: string;
   parentEmployee: Employee;
@@ -16,7 +15,6 @@ export interface Department {
   address: Address;
   name: string;
   phone: string;
-  updateDate: string;
 }
 
 export interface Address {

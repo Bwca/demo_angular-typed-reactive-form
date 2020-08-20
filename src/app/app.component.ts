@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {FormBuilder, Validators} from '@angular/forms';
 import {TypedFormGroup} from './models/typed-reactive-form/typed-form-group.model';
-import {Address, Department, EmployeeDto} from './models/employee.dto';
+import {Address, Department, Employee, EmployeeDto, Position} from './models/employee.dto';
 import {TypedControlConfig} from './models/typed-reactive-form/typed-control-config.type';
 
 @Component({
@@ -11,56 +11,75 @@ import {TypedControlConfig} from './models/typed-reactive-form/typed-control-con
 })
 export class AppComponent implements OnInit {
 
-  employeeFormGroupOne: TypedFormGroup<EmployeeDto>;
+  employeeFormGroup: TypedFormGroup<EmployeeDto>;
 
   constructor(private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.initFormOne();
+    this.initializeFormGroup();
   }
 
-  private initFormOne(): void {
-    const fbPayload: TypedControlConfig<EmployeeDto> = {
-      creationDate: ['creationDate'],
-      department: {
-        address: {
-          building: ['building'],
-          city: ['city'],
-          code: ['code'],
-          country: ['country'],
-          street: ['street']
-        },
-        name: ['name'],
-        phone: ['phone'],
-        updateDate: ['updateDate']
-      },
-      email: ['email'],
-      firstName: ['firstName'],
-      id: [1],
-      lastName: ['lastName'],
-      middleName: ['middleName'],
-      parentEmployee: {
-        email: ['email'],
-        firstName: ['firstName'],
-        lastName: ['lastName'],
-        middleName: ['middleName'],
-        phone: ['phone'],
-        position: {
-          actualFrom: ['actualFrom'],
-          actualTo: ['actualTo'],
-          name: ['name']
-        }
-      },
-      permissions: ['permissions'],
-      phone: ['phone'],
-      position: {
-        name: ['name'],
-        actualTo: ['actualTo'],
-        actualFrom: ['actualFrom']
-      }
+
+  private initializeFormGroup(): void {
+    const addressPayload: TypedControlConfig<Address> = {
+      building: ['building'],
+      city: ['city'],
+      code: ['code'],
+      country: ['country'],
+      street: ['street']
     };
 
-    this.employeeFormGroupOne = this.fb.group(fbPayload) as TypedFormGroup<EmployeeDto>;
+    const departmentPayload: TypedControlConfig<Department> = {
+      address: this.fb.group(addressPayload) as TypedFormGroup<Address>,
+      name: ['name'],
+      phone: ['phone'],
+    };
+
+    const parentEmployeePositionPayload: TypedControlConfig<Position> = {
+      actualFrom: ['actualFrom', Validators.required],
+      actualTo: ['actualTo'],
+      name: ['name']
+    };
+
+    const parentEmployeePayload: TypedControlConfig<Employee> = {
+      email: ['email'],
+      firstName: ['firstName'],
+      lastName: ['lastName'],
+      middleName: ['middleName'],
+      phone: ['phone'],
+      position: this.fb.group(parentEmployeePositionPayload) as TypedFormGroup<Position>
+    };
+
+    const employeePositionPayload: TypedControlConfig<Position> = {
+      name: ['name'],
+      actualTo: ['actualTo'],
+      actualFrom: ['actualFrom']
+    };
+
+    const fbPayload: TypedControlConfig<EmployeeDto> = {
+      creationDate: ['212'],
+      department: this.fb.group(departmentPayload) as TypedFormGroup<Department>,
+      email: ['email'],
+      firstName: ['firstName'],
+      lastName: ['lastName'],
+      middleName: ['middleName'],
+      parentEmployee: this.fb.group(parentEmployeePayload) as TypedFormGroup<Employee>,
+      permissions: ['permissions'],
+      phone: ['phone'],
+      position: this.fb.group(employeePositionPayload) as TypedFormGroup<Position>
+    };
+
+    this.employeeFormGroup = this.fb.group(fbPayload) as TypedFormGroup<EmployeeDto>;
+
+    const dep = this.employeeFormGroup.get<Department>('department');
+
+    const address = dep.get<Address>('address');
+
+    const x = address.get('code');
+
+    console.log(x.value);
+
+    console.log(dep.value);
   }
 }
