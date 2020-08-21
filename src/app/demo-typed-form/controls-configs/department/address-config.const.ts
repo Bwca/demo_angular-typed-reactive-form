@@ -1,5 +1,5 @@
-import {TypedControlConfig} from '../../../models/typed-reactive-form/typed-control-config.type';
-import {Address} from '../../../models/employee.dto';
+import {TypedControlConfig} from '../../../typed-reactive-form/typed-control-config.type';
+import {Address} from '../../models/employee.dto';
 
 export const ADDRESS_CONFIG: TypedControlConfig<Address> = {
     building: ['building'],

@@ -24,6 +24,7 @@ export interface Address {
   country: string;
   street: string;
 }
+
 export interface Employee {
   email: string;
   firstName: string;
@@ -38,3 +39,43 @@ export interface Position {
   actualTo: string;
   name: string;
 }
+
+/*
+export interface EmployeeDto {
+  creationDate: string;
+  department: {
+    address: {
+      building: string;
+      city: string;
+      code: string;
+      country: string;
+      street: string;
+    };
+    name: string;
+    phone: string;
+  };
+  email: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  parentEmployee: {
+    email: string;
+    firstName: string;
+    lastName: string;
+    middleName: string;
+    phone: string;
+    position: {
+      actualFrom: string;
+      actualTo: string;
+      name: string;
+    };
+  };
+  permissions: string[];
+  phone: string;
+  position: {
+    actualFrom: string;
+    actualTo: string;
+    name: string;
+  };
+}
+*/
