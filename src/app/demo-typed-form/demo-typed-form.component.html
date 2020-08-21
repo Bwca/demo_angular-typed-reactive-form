@@ -1,1 +1,11 @@
 it works
+
+<form [formGroup]="employeeFormGroup">
+
+  <app-department [departmentForm]="employeeFormGroup.get('department')"></app-department>
+
+  <app-employee [employeeForm]="employeeFormGroup.get('parentEmployee')"></app-employee>
+
+  <app-position [positionForm]="employeeFormGroup.get('position')"></app-position>
+
+</form>

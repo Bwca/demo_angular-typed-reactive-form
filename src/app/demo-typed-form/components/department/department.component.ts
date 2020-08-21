@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {TypedFormGroup} from '../../../typed-reactive-form/models/typed-form-group.model';
+import {Department} from '../../models/employee.dto';
 
 @Component({
   selector: 'app-department',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartmentComponent implements OnInit {
 
+  @Input() public departmentForm: TypedFormGroup<Department>;
+
   constructor() { }
 
   ngOnInit(): void {
+
+    console.log('departmentForm')
+    console.log(this.departmentForm)
   }
 
 }

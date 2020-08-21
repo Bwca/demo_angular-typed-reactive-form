@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {TypedFormGroup} from '../../../typed-reactive-form/models/typed-form-group.model';
+import {Employee} from '../../models/employee.dto';
 
 @Component({
   selector: 'app-position',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PositionComponent implements OnInit {
 
+  @Input() public positionForm: TypedFormGroup<Position>;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log('position')
+    console.log(this.positionForm)
   }
 
 }

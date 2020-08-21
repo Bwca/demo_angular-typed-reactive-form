@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {TypedFormGroup} from '../typed-reactive-form/typed-form-group.model';
+import {TypedFormGroup} from '../typed-reactive-form/models/typed-form-group.model';
 import {Address, Department, EmployeeDto, Position} from './models/employee.dto';
 import {FormBuilder, Validators} from '@angular/forms';
-import {FORM_CONFIG} from './controls-configs/form-config.const';
-import {TypedControlConfig} from '../typed-reactive-form/typed-control-config.type';
+import {FORM_CONFIG} from './models/form-config.const';
+import {TypedControlConfig} from '../typed-reactive-form/models/typed-control-config.type';
+import {TypedFormGroupBuilderService} from '../typed-reactive-form/demo-typed-form-builder/typed-form-group-builder.service';
 
 
 @Component({
@@ -13,21 +14,15 @@ import {TypedControlConfig} from '../typed-reactive-form/typed-control-config.ty
 })
 export class DemoTypedFormComponent implements OnInit {
 
+  public employeeFormGroup: TypedFormGroup<EmployeeDto>;
 
-  employeeFormGroup: TypedFormGroup<EmployeeDto>;
-
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private formBuilder: TypedFormGroupBuilderService
+  ) {
   }
 
   ngOnInit(): void {
-
-
-
-    this.employeeFormGroup = this.fb.group({
-      ...FORM_CONFIG,
-      department: {}
-    }) as TypedFormGroup<EmployeeDto>;
-    console.log(this.employeeFormGroup);
+    this.employeeFormGroup = this.formBuilder.buildFormGroupFromConfig<EmployeeDto>(FORM_CONFIG);
   }
 
 }
