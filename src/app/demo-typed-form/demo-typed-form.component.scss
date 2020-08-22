@@ -15,4 +15,19 @@ form {
   [type="submit"] {
     grid-column: span 2;
   }
+
+  [type="submit"] {
+    border: 1px solid grey;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    &:not(:disabled) {
+      cursor: pointer;
+      background-color: green;
+      color: white;
+    }
+    &:hover:disabled{
+      text-decoration: line-through;
+    }
+  }
 }
