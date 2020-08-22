@@ -11,11 +11,11 @@ export class EmployeeComponent implements OnInit {
 
   @Input() public employeeForm: TypedFormGroup<Employee>;
 
-  constructor() { }
-
   ngOnInit(): void {
-    console.log('employeeForm')
-    console.log(this.employeeForm)
+    this.employeeForm.valueChanges.subscribe(val => {
+      console.log('Typed form value');
+      console.log(val);
+    });
   }
 
 }

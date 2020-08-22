@@ -11,11 +11,10 @@ export class PositionComponent implements OnInit {
 
   @Input() public positionForm: TypedFormGroup<Position>;
 
-  constructor() { }
-
-  ngOnInit(): void {
-    console.log('position')
-    console.log(this.positionForm)
+  ngOnInit(): void {this.positionForm.valueChanges.subscribe(val => {
+    console.log('Typed form value');
+    console.log(val);
+  });
   }
 
 }

@@ -11,12 +11,11 @@ export class DepartmentComponent implements OnInit {
 
   @Input() public departmentForm: TypedFormGroup<Department>;
 
-  constructor() { }
-
   ngOnInit(): void {
-
-    console.log('departmentForm')
-    console.log(this.departmentForm)
+    this.departmentForm.valueChanges.subscribe(val => {
+      console.log('Typed form value');
+      console.log(val);
+    });
   }
 
 }

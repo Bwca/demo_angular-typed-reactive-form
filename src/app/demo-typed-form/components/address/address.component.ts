@@ -10,14 +10,12 @@ import {Address} from '../../models/employee.dto';
 export class AddressComponent implements OnInit {
 
   @Input() public addressForm: TypedFormGroup<Address>;
-
-
-  constructor() { }
-
   ngOnInit(): void {
 
-    console.log('addressForm')
-    console.log(this.addressForm)
+    this.addressForm.valueChanges.subscribe(val => {
+      console.log('Typed form value');
+      console.log(val);
+    });
   }
 
 }
