@@ -10,11 +10,16 @@ import { TypedFormGroup } from '../models/typed-form-group.model';
 export class TypedFormGroupBuilderService {
   constructor(private fb: FormBuilder) {}
 
-  public buildFormGroupFromConfig<T>(formConfig: TypedControlConfig<T>): TypedFormGroup<T> {
+  public buildFormGroupFromConfig<T>(
+    formConfig: TypedControlConfig<T>
+  ): TypedFormGroup<T> {
     const config: TypedControlConfig<T> = {} as TypedControlConfig<T>;
     Object.entries(formConfig).forEach(([key, value]) => {
-      const valueIsArrayOrPrimitive = Array.isArray(value) || typeof value !== 'object';
-      config[key] = valueIsArrayOrPrimitive ? value : this.buildFormGroupFromConfig<typeof value>(value);
+      const valueIsArrayOrPrimitive =
+        Array.isArray(value) || typeof value !== 'object';
+      config[key] = valueIsArrayOrPrimitive
+        ? value
+        : this.buildFormGroupFromConfig<typeof value>(value);
     });
     return this.fb.group(config) as TypedFormGroup<T>;
   }

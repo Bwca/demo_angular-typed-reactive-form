@@ -16,7 +16,9 @@ export class DemoTypedFormComponent implements OnInit {
   constructor(private formBuilder: TypedFormGroupBuilderService) {}
 
   ngOnInit(): void {
-    this.employeeFormGroup = this.formBuilder.buildFormGroupFromConfig<EmployeeDto>(FORM_CONFIG);
+    this.employeeFormGroup = this.formBuilder.buildFormGroupFromConfig<
+      EmployeeDto
+    >(FORM_CONFIG);
   }
 
   public onFormSubmit(): void {

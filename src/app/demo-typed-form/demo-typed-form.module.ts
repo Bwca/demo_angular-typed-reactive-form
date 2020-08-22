@@ -10,7 +10,14 @@ import { DemoTypedFormComponent } from './demo-typed-form.component';
 import { FormInputComponent } from './shared/form-input/form-input.component';
 
 @NgModule({
-  declarations: [DemoTypedFormComponent, DepartmentComponent, AddressComponent, EmployeeComponent, PositionComponent, FormInputComponent],
+  declarations: [
+    DemoTypedFormComponent,
+    DepartmentComponent,
+    AddressComponent,
+    EmployeeComponent,
+    PositionComponent,
+    FormInputComponent,
+  ],
   imports: [CommonModule, ReactiveFormsModule],
   exports: [DemoTypedFormComponent],
 })

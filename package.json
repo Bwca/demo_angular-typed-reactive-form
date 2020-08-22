@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "pretty": "npx prettier --write .",
-    "lint-fix": " ng lint --fix=true"
+    "lint-fix": "ng lint --fix=true"
   },
   "private": true,
   "dependencies": {
