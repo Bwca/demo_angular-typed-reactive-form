@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TypedFormGroup} from '../../../typed-reactive-form/models/typed-form-group.model';
-import {Employee} from '../../models/employee.dto';
+import {Position} from '../../models/employee.dto';
 
 @Component({
   selector: 'app-position',

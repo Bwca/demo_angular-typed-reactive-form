@@ -1,1 +1,25 @@
-<p>employee works!</p>
+<app-form-input
+  [inputFormControl]="employeeForm.get('firstName')"
+  type="text"
+  label="First name"
+></app-form-input>
+
+<app-form-input
+  [inputFormControl]="employeeForm.get('middleName')"
+  type="text"
+  label="Middle name"
+></app-form-input>
+
+<app-form-input
+  [inputFormControl]="employeeForm.get('lastName')"
+  type="text"
+  label="Last name"
+></app-form-input>
+
+<app-form-input
+  [inputFormControl]="employeeForm.get('phone')"
+  type="text"
+  label="Phone"
+></app-form-input>
+
+<app-position [positionForm]="employeeForm.get('position')"></app-position>

@@ -25,4 +25,8 @@ export class DemoTypedFormComponent implements OnInit {
     this.employeeFormGroup = this.formBuilder.buildFormGroupFromConfig<EmployeeDto>(FORM_CONFIG);
   }
 
+  public onFormSubmit():void{
+    console.log('submitted')
+  }
+
 }

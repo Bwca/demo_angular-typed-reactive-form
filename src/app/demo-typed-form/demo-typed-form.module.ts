@@ -6,6 +6,7 @@ import { DepartmentComponent } from './components/department/department.componen
 import { AddressComponent } from './components/address/address.component';
 import { EmployeeComponent } from './components/employee/employee.component';
 import { PositionComponent } from './components/position/position.component';
+import { FormInputComponent } from './shared/form-input/form-input.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { PositionComponent } from './components/position/position.component';
     DepartmentComponent,
     AddressComponent,
     EmployeeComponent,
-    PositionComponent],
+    PositionComponent,
+    FormInputComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule

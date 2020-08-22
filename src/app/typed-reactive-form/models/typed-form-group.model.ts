@@ -1,10 +1,10 @@
 import {AbstractControl, FormArray, FormGroup} from '@angular/forms';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 
 
 export interface TypedFormGroup<T> extends FormGroup {
   value: Partial<T>;
-  valueChanges: Observable<T>;
+  valueChanges: Observable<Partial<T>>;
 
   setValue(val: T): void;
 
