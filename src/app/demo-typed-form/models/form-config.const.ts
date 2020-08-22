@@ -1,6 +1,7 @@
-import {TypedControlConfig} from '../../typed-reactive-form/models/typed-control-config.type';
-import {EmployeeDto} from './employee.dto';
-import {Validators} from '@angular/forms';
+import { Validators } from '@angular/forms';
+
+import { TypedControlConfig } from '../../typed-reactive-form/models/typed-control-config.type';
+import { EmployeeDto } from './employee.dto';
 
 export const FORM_CONFIG: TypedControlConfig<EmployeeDto> = {
   creationDate: ['212'],
@@ -10,7 +11,7 @@ export const FORM_CONFIG: TypedControlConfig<EmployeeDto> = {
       city: ['city'],
       code: ['code'],
       country: ['country'],
-      street: ['street']
+      street: ['street'],
     },
     name: ['name'],
     phone: ['phone'],
@@ -28,14 +29,14 @@ export const FORM_CONFIG: TypedControlConfig<EmployeeDto> = {
     position: {
       actualFrom: ['actualFrom', Validators.required],
       actualTo: ['actualTo'],
-      name: ['name']
-    }
+      name: ['name'],
+    },
   },
   permissions: ['permissions'],
   phone: ['phone'],
   position: {
     actualFrom: ['actualFrom', Validators.required],
     actualTo: ['actualTo'],
-    name: ['name']
-  }
+    name: ['name'],
+  },
 };

@@ -1,40 +1,15 @@
 <form [formGroup]="employeeFormGroup" (ngSubmit)="onFormSubmit()">
+  <app-form-input [inputFormControl]="employeeFormGroup.get('phone')" type="text" label="Phone"></app-form-input>
 
-  <app-form-input
-    [inputFormControl]="employeeFormGroup.get('phone')"
-    type="text"
-    label="Phone"
-  ></app-form-input>
+  <app-form-input [inputFormControl]="employeeFormGroup.get('firstName')" type="text" label="First name"></app-form-input>
 
-  <app-form-input
-    [inputFormControl]="employeeFormGroup.get('firstName')"
-    type="text"
-    label="First name"
-  ></app-form-input>
+  <app-form-input [inputFormControl]="employeeFormGroup.get('middleName')" type="text" label="Middle name"></app-form-input>
 
-  <app-form-input
-    [inputFormControl]="employeeFormGroup.get('middleName')"
-    type="text"
-    label="Middle name"
-  ></app-form-input>
+  <app-form-input [inputFormControl]="employeeFormGroup.get('lastName')" type="text" label="Last name"></app-form-input>
 
-  <app-form-input
-    [inputFormControl]="employeeFormGroup.get('lastName')"
-    type="text"
-    label="Last name"
-  ></app-form-input>
+  <app-form-input [inputFormControl]="employeeFormGroup.get('email')" type="text" label="Email"></app-form-input>
 
-  <app-form-input
-    [inputFormControl]="employeeFormGroup.get('email')"
-    type="text"
-    label="Email"
-  ></app-form-input>
-
-  <app-form-input
-    [inputFormControl]="employeeFormGroup.get('creationDate')"
-    type="date"
-    label="Creation date"
-  ></app-form-input>
+  <app-form-input [inputFormControl]="employeeFormGroup.get('creationDate')" type="date" label="Creation date"></app-form-input>
 
   <fieldset>
     <legend>Department:</legend>
@@ -52,5 +27,4 @@
   </fieldset>
 
   <input type="submit" value="submit form" />
-
 </form>

@@ -1,19 +1,14 @@
-import {Injectable} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
-import {TypedFormGroup} from '../models/typed-form-group.model';
-import {EmployeeDto} from '../../demo-typed-form/models/employee.dto';
-import {TypedControlConfig} from '../models/typed-control-config.type';
-import {FORM_CONFIG} from '../../demo-typed-form/models/form-config.const';
+import { Injectable } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+
+import { TypedControlConfig } from '../models/typed-control-config.type';
+import { TypedFormGroup } from '../models/typed-form-group.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TypedFormGroupBuilderService {
-
-  constructor(
-    private fb: FormBuilder
-  ) {
-  }
+  constructor(private fb: FormBuilder) {}
 
   public buildFormGroupFromConfig<T>(formConfig: TypedControlConfig<T>): TypedFormGroup<T> {
     const config: TypedControlConfig<T> = {} as TypedControlConfig<T>;
