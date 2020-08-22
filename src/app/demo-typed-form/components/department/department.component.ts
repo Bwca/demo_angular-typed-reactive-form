@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { TypedFormGroup } from '../../../typed-reactive-form/models/typed-form-group.model';
+import { TypedFormGroup } from 'ngx-typed-reactive-form';
+
 import { Department } from '../../models/employee.dto';
 
 @Component({

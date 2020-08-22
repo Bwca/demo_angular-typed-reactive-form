@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { TypedFormGroupBuilderService } from '../typed-reactive-form/demo-typed-form-builder/typed-form-group-builder.service';
-import { TypedFormGroup } from '../typed-reactive-form/models/typed-form-group.model';
+import { TypedFormGroupBuilderService } from 'ngx-typed-reactive-form';
+import { TypedFormGroup } from 'ngx-typed-reactive-form';
+
 import { EmployeeDto } from './models/employee.dto';
 import { FORM_CONFIG } from './models/form-config.const';
 

@@ -11,5 +11,7 @@ export interface TypedFormGroup<T> extends FormGroup {
 
   patchValue(val: Partial<T>): void;
 
-  get<K>(path: keyof T & string): K extends unknown ? FormControl : TypedFormGroup<K>;
+  get<K>(
+    path: keyof T & string
+  ): K extends unknown ? FormControl : TypedFormGroup<K>;
 }

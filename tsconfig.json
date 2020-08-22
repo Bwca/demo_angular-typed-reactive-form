@@ -12,6 +12,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-typed-reactive-form/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-typed-reactive-form/tsconfig.spec.json"
     }
   ]
 }

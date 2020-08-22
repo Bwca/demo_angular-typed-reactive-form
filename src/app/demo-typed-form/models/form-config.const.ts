@@ -1,6 +1,7 @@
 import { Validators } from '@angular/forms';
 
-import { TypedControlConfig } from '../../typed-reactive-form/models/typed-control-config.type';
+import { TypedControlConfig } from 'ngx-typed-reactive-form';
+
 import { EmployeeDto } from './employee.dto';
 
 export const FORM_CONFIG: TypedControlConfig<EmployeeDto> = {

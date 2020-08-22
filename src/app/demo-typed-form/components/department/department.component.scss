@@ -1,9 +1,9 @@
-:host{
+:host {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
-app-address{
+app-address {
   grid-column: span 2;
 }

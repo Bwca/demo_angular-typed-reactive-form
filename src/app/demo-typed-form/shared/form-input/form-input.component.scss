@@ -23,13 +23,13 @@ label {
 }
 
 .is-valid {
-  @include border(green)
+  @include border(green);
 }
 
 .is-invalid {
   @include border(red);
 
   &:after {
-    content: '!'
+    content: "!";
   }
 }
