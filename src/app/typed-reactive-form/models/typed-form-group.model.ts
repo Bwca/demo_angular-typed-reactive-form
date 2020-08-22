@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 export interface TypedFormGroup<T> extends FormGroup {
@@ -11,5 +11,5 @@ export interface TypedFormGroup<T> extends FormGroup {
 
   patchValue(val: Partial<T>): void;
 
-  get<K>(path: keyof T & string): TypedFormGroup<K>;
+  get<K>(path: keyof T & string): K extends unknown ? FormControl : TypedFormGroup<K>;
 }

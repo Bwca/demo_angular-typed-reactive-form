@@ -1,32 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
-
-import { TypedFormGroup } from '../../../typed-reactive-form/models/typed-form-group.model';
 
 @Component({
   selector: 'app-form-input',
   template: `
     <label>
-      <span>{{ label }}</span>
-      <input [formControl]="inputFormControl" [type]="type"/>
+      <span>{{ label }}:</span>
+      <input [formControl]="inputFormControl" [type]="type"
+             [ngClass]="{
+             'is-valid': inputFormControl.touched && inputFormControl.valid,
+             'is-invalid': inputFormControl.touched && inputFormControl.invalid
+             }"/>
     </label>
   `,
   styleUrls: ['./form-input.component.scss']
 })
-export class FormInputComponent implements OnInit {
-  @Input('inputFormControl')
-  public set setFormControl(formControl: TypedFormGroup<unknown>) {
-    this.inputFormControl = (formControl) as unknown as FormControl;
-  }
-
+export class FormInputComponent {
+  @Input() public inputFormControl: FormControl;
   @Input() public label: string;
-  @Input() public type: string;
-
-  public inputFormControl: FormControl;
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
+  @Input() public type: 'date' | 'text' | 'tel';
 }

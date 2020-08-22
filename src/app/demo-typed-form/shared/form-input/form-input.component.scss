@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin border($color) {
+  border-style: solid;
+  border-width: 0 0 2px 0;
+  border-color: $color;
+}
+
+input {
+  @include border(gray);
+  padding: 5px 10px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+
+.is-valid {
+  @include border(green)
+}
+
+.is-invalid {
+  @include border(red);
+
+  &:after {
+    content: '!'
+  }
+}
