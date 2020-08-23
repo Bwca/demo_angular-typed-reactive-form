@@ -11,12 +11,6 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": ["es2018", "dom"],
-    "paths": {
-      "ngx-typed-reactive-form": [
-        "dist/ngx-typed-reactive-form/ngx-typed-reactive-form",
-        "dist/ngx-typed-reactive-form"
-      ]
-    }
+    "lib": ["es2018", "dom"]
   }
 }
