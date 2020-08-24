@@ -1,10 +1,10 @@
 import { Validators } from '@angular/forms';
 
-import { TypedControlConfig } from 'ngx-typed-reactive-form';
+import { TypedFormBuilderConfig } from 'ngx-typed-reactive-form';
 
 import { EmployeeDto } from './employee.dto';
 
-export const FORM_CONFIG: TypedControlConfig<EmployeeDto> = {
+export const FORM_CONFIG: TypedFormBuilderConfig<EmployeeDto> = {
   creationDate: ['1991-12-12'],
   department: {
     address: {

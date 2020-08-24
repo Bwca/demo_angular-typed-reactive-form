@@ -13,7 +13,6 @@ export class AddressComponent implements OnInit {
   @Input() public addressForm: TypedFormGroup<Address>;
   ngOnInit(): void {
     this.addressForm.valueChanges.subscribe((val) => {
-      console.log('Typed form value');
       console.log(val);
     });
   }

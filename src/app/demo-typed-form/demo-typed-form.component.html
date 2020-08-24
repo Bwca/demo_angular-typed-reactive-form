@@ -2,37 +2,37 @@
 
 <form [formGroup]="employeeFormGroup" (ngSubmit)="onFormSubmit()">
   <app-form-input
-    [inputFormControl]="employeeFormGroup.get('firstName')"
+    [inputFormControl]="employeeFormGroup.controls.firstName"
     type="text"
     label="First name"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.get('lastName')"
+    [inputFormControl]="employeeFormGroup.controls.lastName"
     type="text"
     label="First name"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.get('middleName')"
+    [inputFormControl]="employeeFormGroup.controls.middleName"
     type="text"
     label="Middle name"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.get('phone')"
+    [inputFormControl]="employeeFormGroup.controls.phone"
     type="text"
     label="Phone"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.get('email')"
+    [inputFormControl]="employeeFormGroup.controls.email"
     type="text"
     label="Email"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.get('creationDate')"
+    [inputFormControl]="employeeFormGroup.controls.creationDate"
     type="date"
     label="Creation date"
   ></app-form-input>
@@ -40,21 +40,21 @@
   <fieldset>
     <legend>Position:</legend>
     <app-position
-      [positionForm]="employeeFormGroup.get('position')"
+      [positionForm]="employeeFormGroup.controls.position"
     ></app-position>
   </fieldset>
 
   <fieldset>
     <legend>Department:</legend>
     <app-department
-      [departmentForm]="employeeFormGroup.get('department')"
+      [departmentForm]="employeeFormGroup.controls.department"
     ></app-department>
   </fieldset>
 
   <fieldset>
     <legend>Parent employee:</legend>
     <app-employee
-      [employeeForm]="employeeFormGroup.get('parentEmployee')"
+      [employeeForm]="employeeFormGroup.controls.parentEmployee"
     ></app-employee>
   </fieldset>
 
