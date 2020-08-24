@@ -1,35 +1,36 @@
+import { Validators } from '@angular/forms';
+
 import { TypedFormBuilderConfig } from 'ngx-typed-reactive-form';
 
-import { FriendDto, UserDto } from './user.dto';
+import { UserDto } from './user.dto';
 
 export const USER_FORM_CONFIG: TypedFormBuilderConfig<UserDto> = {
-  id: [''],
-  registered: [''],
-  name: [''],
-  isActive: [false],
-  age: [0],
-  about: [''],
-  balance: [''],
+  id: ['1312332'],
+  name: ['John Doe'],
+  registered: ['1992-12-12', Validators.required],
+  isActive: [true],
+  age: [99],
+  about: ['This is a generic description'],
+  balance: ['12412412'],
   contacts: {
     address: {
-      apartment: [''],
-      building: [''],
-      city: [''],
-      street: [''],
+      apartment: ['App. 99'],
+      building: ['92/B'],
+      city: ['City'],
+      street: ['Street'],
     },
-    email: [''],
-    phone: [''],
+    email: ['some-email@email.com'],
+    phone: ['1-458-485-45-54'],
   },
   friends: [
-    [
-      {
-        id: 1,
-        name: 'Uncle Bob',
-      }, {
-        id: 1,
-        name:  'Uncle Jun',
-      },
-    ],
+    {
+      id: 1,
+      name: 'Jane Doe',
+    },
+    {
+      id: 1,
+      name: 'Jack Doe',
+    },
   ],
-  tags: [['']],
+  tags: [['tag one', 'tag two']],
 };

@@ -2,84 +2,66 @@
 
 <form [formGroup]="userFormGroup" (ngSubmit)="onFormSubmit()">
   <app-form-input
-    [inputFormControl]="userFormGroup.controls.registered"
-    type="date"
-    label="Registered"
-  ></app-form-input>
-
-  <app-form-input
     [inputFormControl]="userFormGroup.controls.name"
     type="text"
     label="Name"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="userFormGroup.controls.isActive"
-    type="checkbox"
-    label="Is active"
+    [inputFormControl]="userFormGroup.controls.registered"
+    type="date"
+    label="Registration date"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="userFormGroup.controls.age"
-    type="number"
-    label="Age"
+    [inputFormControl]="userFormGroup.controls.about"
+    type="text"
+    label="About"
   ></app-form-input>
 
   <app-form-input
     [inputFormControl]="userFormGroup.controls.balance"
-    type="number"
+    type="text"
     label="Balance"
   ></app-form-input>
 
-  <app-form-input
-    [inputFormControl]="
-      userFormGroup.controls.contacts.controls.address.controls.city
-    "
-    type="text"
-    label="City"
-  ></app-form-input>
+  <fieldset *ngIf="userFormGroup.controls.contacts as contacts">
+    <legend>Contacts</legend>
 
-  <app-form-input
-    [inputFormControl]="
-      userFormGroup.controls.contacts.controls.address.controls.street
-    "
-    type="text"
-    label="Street"
-  ></app-form-input>
+    <ng-container *ngIf="contacts.controls.address as address">
+      <app-form-input
+        [inputFormControl]="address.controls.city"
+        type="text"
+        label="City"
+      ></app-form-input>
 
-  <app-form-input
-    [inputFormControl]="
-      userFormGroup.controls.contacts.controls.address.controls.building
-    "
-    type="text"
-    label="Building"
-  ></app-form-input>
+      <app-form-input
+        [inputFormControl]="address.controls.street"
+        type="text"
+        label="Street"
+      ></app-form-input>
 
-  <app-form-input
-    [inputFormControl]="
-      userFormGroup.controls.contacts.controls.address.controls.apartment
-    "
-    type="text"
-    label="Appartment"
-  ></app-form-input>
+      <app-form-input
+        [inputFormControl]="address.controls.building"
+        type="text"
+        label="Building"
+      ></app-form-input>
 
-  <app-form-input
-    [inputFormControl]="userFormGroup.controls.contacts.controls.email"
-    type="email"
-    label="Email"
-  ></app-form-input>
+      <app-form-input
+        [inputFormControl]="address.controls.apartment"
+        type="text"
+        label="Apartment"
+      ></app-form-input>
+    </ng-container>
+  </fieldset>
 
-  <app-form-input
-    [inputFormControl]="userFormGroup.controls.contacts.controls.phone"
-    type="tel"
-    label="Phone"
-  ></app-form-input>
-
-  <app-form-input *ngFor="let i of userFormGroup.controls.friends.controls"
-  [inputFormControl]="i.controls.name"
-  type="text"
-  label="FRIEND?"
-></app-form-input> 
+  <ng-container *ngFor="let friend of userFormGroup.controls.friends.controls">
+    <app-form-input
+      [inputFormControl]="friend.controls.name"
+      type="text"
+      label="Friend"
+    ></app-form-input>
+  </ng-container>
 
   <input type="submit" value="submit form" [disabled]="userFormGroup.invalid" />
 </form>

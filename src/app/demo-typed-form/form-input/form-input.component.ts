@@ -21,5 +21,5 @@ import { FormControl } from '@angular/forms';
 export class FormInputComponent {
   @Input() public inputFormControl: FormControl;
   @Input() public label: string;
-  @Input() public type: 'date' | 'text' | 'tel';
+  @Input() public type: 'string';
 }
