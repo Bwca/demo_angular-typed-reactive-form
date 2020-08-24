@@ -1,62 +1,85 @@
 <h1>This is a meaningless form that doesn't submit</h1>
 
-<form [formGroup]="employeeFormGroup" (ngSubmit)="onFormSubmit()">
+<form [formGroup]="userFormGroup" (ngSubmit)="onFormSubmit()">
   <app-form-input
-    [inputFormControl]="employeeFormGroup.controls.firstName"
-    type="text"
-    label="First name"
+    [inputFormControl]="userFormGroup.controls.registered"
+    type="date"
+    label="Registered"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.controls.lastName"
+    [inputFormControl]="userFormGroup.controls.name"
     type="text"
-    label="First name"
+    label="Name"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.controls.middleName"
-    type="text"
-    label="Middle name"
+    [inputFormControl]="userFormGroup.controls.isActive"
+    type="checkbox"
+    label="Is active"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.controls.phone"
-    type="text"
-    label="Phone"
+    [inputFormControl]="userFormGroup.controls.age"
+    type="number"
+    label="Age"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.controls.email"
+    [inputFormControl]="userFormGroup.controls.balance"
+    type="number"
+    label="Balance"
+  ></app-form-input>
+
+  <app-form-input
+    [inputFormControl]="
+      userFormGroup.controls.contacts.controls.address.controls.city
+    "
     type="text"
+    label="City"
+  ></app-form-input>
+
+  <app-form-input
+    [inputFormControl]="
+      userFormGroup.controls.contacts.controls.address.controls.street
+    "
+    type="text"
+    label="Street"
+  ></app-form-input>
+
+  <app-form-input
+    [inputFormControl]="
+      userFormGroup.controls.contacts.controls.address.controls.building
+    "
+    type="text"
+    label="Building"
+  ></app-form-input>
+
+  <app-form-input
+    [inputFormControl]="
+      userFormGroup.controls.contacts.controls.address.controls.apartment
+    "
+    type="text"
+    label="Appartment"
+  ></app-form-input>
+
+  <app-form-input
+    [inputFormControl]="userFormGroup.controls.contacts.controls.email"
+    type="email"
     label="Email"
   ></app-form-input>
 
   <app-form-input
-    [inputFormControl]="employeeFormGroup.controls.creationDate"
-    type="date"
-    label="Creation date"
+    [inputFormControl]="userFormGroup.controls.contacts.controls.phone"
+    type="tel"
+    label="Phone"
   ></app-form-input>
 
-  <fieldset>
-    <legend>Position:</legend>
-    <app-position
-      [positionForm]="employeeFormGroup.controls.position"
-    ></app-position>
-  </fieldset>
+  <app-form-input *ngFor="let i of userFormGroup.controls.friends.controls"
+  [inputFormControl]="i.controls.name"
+  type="text"
+  label="FRIEND?"
+></app-form-input> 
 
-  <fieldset>
-    <legend>Department:</legend>
-    <app-department
-      [departmentForm]="employeeFormGroup.controls.department"
-    ></app-department>
-  </fieldset>
-
-  <fieldset>
-    <legend>Parent employee:</legend>
-    <app-employee
-      [employeeForm]="employeeFormGroup.controls.parentEmployee"
-    ></app-employee>
-  </fieldset>
-
-  <input type="submit" value="submit form" [disabled]="employeeFormGroup.invalid" />
+  <input type="submit" value="submit form" [disabled]="userFormGroup.invalid" />
 </form>
