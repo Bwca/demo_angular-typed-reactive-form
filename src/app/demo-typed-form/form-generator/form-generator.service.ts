@@ -24,10 +24,6 @@ export class FormGeneratorService {
       friends: this.fb.array([]),
     }) as TypedFormGroup<UserDto>;
 
-    form.controls.friends.valueChanges.subscribe((i) => {
-      console.log(i);
-    });
-
     user.friends.forEach((i) => form.controls.friends.push(this.fb.group(i)));
 
     return form;
